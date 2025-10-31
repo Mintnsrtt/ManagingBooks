@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  mysql-books:
+    image: mysql:8.0
+    container_name: mysql-books
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: booksdb
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./src/main/resources/sql/BookSql.sql:/docker-entrypoint-initdb.d/BookSql.sql
